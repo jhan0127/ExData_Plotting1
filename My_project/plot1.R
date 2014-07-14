@@ -1,0 +1,10 @@
+#subset for project
+dat<-read.csv2("household_power_consumption.txt",header=TRUE, as.is=TRUE)
+dat[,1]<-as.Date(dat[,1],format="%d/%m/%Y")
+subdat<-subset(dat, Date == as.Date("01/02/2007",format="%d/%m/%Y") | Date == as.Date("02/02/2007",format="%d/%m/%Y"))
+subdat2<-transform(subdat, Global_active_power = as.numeric(Global_active_power))
+#Plot1(Histogram)
+plot1<-hist(subdat2$Global_active_power, main="Global Active Power", xlab="Global Active Power (kilowatts)", col="red")
+library(datasets)
+dev.copy(png,file="plot1.png")
+dev.off()
