@@ -28,5 +28,5 @@ plot3<-function(x){
 plot3(x)
 plot5<-plot(subdat3$dateaxis, subdat3$Global_reactive_power, type="l",main="",xlab="datetime",ylab="Global_reactive_power",col="black")
 library(datasets)
-dev.copy(png,file="plot5.png")
+dev.copy(png,file="plot5.png",width = 480, height = 480)
 dev.off()
